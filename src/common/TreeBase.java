@@ -23,16 +23,23 @@ public class TreeBase {
         }
 
         System.out.print(p.value);
+        System.out.print(", ");
 
         preOrderTraverse(p.left);
         preOrderTraverse(p.right);
     }
 
     public static TreeNode buildTree(int nums[]) {
+
+
         //1 创建节点列表
         LinkedList<TreeNode> nodelist = new LinkedList<>();
         for (int num : nums) {
             nodelist.add(new TreeNode(num));
+        }
+
+        if (nodelist.size() == 1){
+            return nodelist.get(0);
         }
 
         //2 创建树,根据父节点迭代生成
