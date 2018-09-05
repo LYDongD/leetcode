@@ -39,7 +39,6 @@ public class MinDepth extends TreeBase {
         }
 
         return Math.min(leftDepth, rightDepth) + 1;
-
     }
 
 

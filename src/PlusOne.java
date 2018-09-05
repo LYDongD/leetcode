@@ -69,7 +69,6 @@ public class PlusOne {
         int[] outPut = plusOne(input);
         for (int i = 0; i< outPut.length; i++){
             System.out.print(outPut[i]);
-            System.out.println(",");
         }
     }
 
