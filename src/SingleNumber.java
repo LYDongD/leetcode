@@ -32,6 +32,7 @@ public class SingleNumber {
 
         int[] nums2 = new int[]{4,1,2,1,2};
         System.out.println(singleNumber(nums2));
+
     }
 
 
