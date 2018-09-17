@@ -43,11 +43,26 @@ public class ExcelSheetColumnTitle {
         return result.toString();
     }
 
+    public static String convertToTitle2(int n) {
+
+        String charTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        StringBuilder result = new StringBuilder();
+
+        while (n > 0){
+            n--;
+            result.insert(0, charTable.charAt(n % 26));
+            n = n / 26;
+        }
+
+        return result.toString();
+    }
+
 
 
 
     public static void main(String args[]) throws Exception{
-        System.out.println(convertToTitle(24568));
+        System.out.println(convertToTitle2(24568));
     }
 
 
