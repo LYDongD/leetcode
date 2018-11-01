@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class IntersectionOfTwoArrays2 {
 
@@ -28,18 +25,24 @@ public class IntersectionOfTwoArrays2 {
     public static int[] intersect(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) return null;
 
-        Set<Integer> numSet = new HashSet<>();
+        Map<Integer, Integer> numCountMap = new HashMap<>();
         int[] minNums = nums1.length <= nums2.length ? nums1 : nums2;
         int[] maxNums = nums1.length > nums2.length ? nums1 : nums2;
 
         for (int num : minNums) {
-            numSet.add(num);
+           if (numCountMap.containsKey(num)){
+               numCountMap.put(num, numCountMap.get(num) + 1);
+           }else {
+               numCountMap.put(num, 1);
+           }
         }
 
         List<Integer> intersectionList = new ArrayList<>();
         for (int num : maxNums) {
-            if (numSet.contains(num)) {
+            Integer numCount = numCountMap.get(num);
+            if (numCount != null && numCount > 0) {
                 intersectionList.add(num);
+                numCountMap.put(num, numCount - 1);
             }
         }
 
